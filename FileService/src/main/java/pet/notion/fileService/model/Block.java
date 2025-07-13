@@ -2,26 +2,34 @@ package pet.notion.fileService.model;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "blocks")
 public class Block {
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+   @GeneratedValue
+   @Column(columnDefinition = "uuid", updatable = false, nullable = false)
+   private UUID id;
 
    @Enumerated(EnumType.STRING)
+   @Column(name = "type", nullable=false)
    private Type type;
 
-   private Map<String, Object> properties;
+   @JdbcTypeCode(SqlTypes.JSON)
+   @Column(name = "properties", nullable=false)
+   private Map<String, List<String>> properties;
 
-   private List<String> content;
+   @Column(name = "content", nullable=false)
+   private List<UUID> content;
 
-   private String parentId;
+   @Column(name = "parentId", nullable=true)
+   private UUID parentId;
 }

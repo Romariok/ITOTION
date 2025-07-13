@@ -9,12 +9,15 @@ public enum Type {
    NUMBERED_LIST,
    TO_DO,
    QUOTE,
-   CODE,
    DIVIDER,
-   TABLE;
+   TABLE,
+   PAGE;
 
-   public static Type fromString(String type) {
+   public Type fromString(String type) {
       return Type.valueOf(type.toUpperCase());
+   }
+   public String toString() {
+      return this.name();
    }
    
 }

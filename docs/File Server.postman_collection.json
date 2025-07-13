@@ -1,0 +1,791 @@
+{
+	"info": {
+		"_postman_id": "3f916c73-8a75-42ee-b700-193073b8e3de",
+		"name": "File Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38982236"
+	},
+	"item": [
+		{
+			"name": "Block Creation",
+			"item": [
+				{
+					"name": "Create Block",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('properties');",
+									"pm.expect(response.properties).to.have.property('title');",
+									"pm.expect(response.properties.title[0]).to.equal('');"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"BULLET_LIST\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5252/api/file/block/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Text Block With Parent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('properties');",
+									"pm.expect(response.properties).to.have.property('title');",
+									"pm.expect(response.properties.title[0]).to.equal('');"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"TEXT\",\n    \"parentId\": \"cd0b5621-28eb-440c-8875-21347d22a2c7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5252/api/file/block/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Divider Block",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"DIVIDER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5252/api/file/block/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Bulleted List Block",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('properties');",
+									"pm.expect(response.properties).to.have.property('title');",
+									"pm.expect(response.properties).to.have.property('checked');",
+									"pm.expect(response.properties.checked[0]).to.equal('No');"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"BULLET_LIST\",\n    \"parentId\": \"7ef3f891-2cec-425f-8552-27180a91ec44\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5252/api/file/block/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Invalid Type Block",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('message');",
+									"pm.expect(response.message).to.equal('No enum constant pet.notion.fileService.model.Type.COFFEE_LIST');",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"COFFEE_LIST\",\n    \"parentId\": \"7ef3f891-2cec-425f-8552-27180a91ec44\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5252/api/file/block/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Title update",
+			"item": [
+				{
+					"name": "Update title",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('properties');",
+									"pm.expect(response.properties).to.have.property('title');",
+									"pm.expect(response.properties.title[0]).to.equal('new valid title');",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:5252/api/file/block/title?id=fa714918-dc84-4c0b-9342-c7326dedb7b2&newTitle=new valid title",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"title"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "fa714918-dc84-4c0b-9342-c7326dedb7b2"
+								},
+								{
+									"key": "newTitle",
+									"value": "new valid title"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Table Creation",
+			"item": [
+				{
+					"name": "Successful table creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"TABLE\",\n    \"dimensions\": [\"2\", \"2\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5252/api/file/block/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Table creation without dimensions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('message');",
+									"pm.expect(response.message).to.equal('For Table creation provide dimensions array with 2 axis');",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"TABLE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5252/api/file/block/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Table creation with invalid dimensions count",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('message');",
+									"pm.expect(response.message).to.equal('Dimensions array must contain 2 integer axis');",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"TABLE\",\n    \"dimensions\": [\"3\", \"3\", \"3\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5252/api/file/block/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Table creation with invalid dimensions values",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('message');",
+									"pm.expect(response.message).to.equal('Dimensions values must be Integers');",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"TABLE\",\n    \"dimensions\": [\"3.43\", \"bttn3\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5252/api/file/block/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Block Deletion",
+			"item": [
+				{
+					"name": "Deletion",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5252/api/file/block?id=636c494b-2f08-41b0-8347-f2cb41d4ca70",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "636c494b-2f08-41b0-8347-f2cb41d4ca70"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Type Convert",
+			"item": [
+				{
+					"name": "Types with title",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('properties');",
+									"pm.expect(response).to.have.property('type');",
+									"pm.expect(response.properties).to.have.property('title');",
+									"pm.expect(response.type).to.equal('QUOTE');",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:5252/api/file/block/convert?id=fa714918-dc84-4c0b-9342-c7326dedb7b2&newType=QUOTE",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"convert"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "fa714918-dc84-4c0b-9342-c7326dedb7b2"
+								},
+								{
+									"key": "newType",
+									"value": "QUOTE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Text to List with checked property",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('properties');",
+									"pm.expect(response).to.have.property('type');",
+									"pm.expect(response.properties).to.have.property('title');",
+									"pm.expect(response.properties).to.have.property('checked');",
+									"pm.expect(response.type).to.equal('BULLET_LIST');",
+									"pm.expect(response.properties.checked[0]).to.equal('No');"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:5252/api/file/block/convert?id=4605385c-c773-4bf8-91f9-47a43ab5569b&newType=BULLET_LIST",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"convert"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4605385c-c773-4bf8-91f9-47a43ab5569b"
+								},
+								{
+									"key": "newType",
+									"value": "BULLET_LIST"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Checked Property to no properties",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('properties');",
+									"pm.expect(response).to.have.property('type');",
+									"pm.expect(response.type).to.equal('DIVIDER');",
+									"pm.expect(response.properties).to.deep.equal({});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:5252/api/file/block/convert?id=4605385c-c773-4bf8-91f9-47a43ab5569b&newType=DIVIDER",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"convert"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4605385c-c773-4bf8-91f9-47a43ab5569b"
+								},
+								{
+									"key": "newType",
+									"value": "DIVIDER"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Block to unreal type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('message');",
+									"pm.expect(response.message).to.equal('No enum constant pet.notion.fileService.model.Type.COFFEE_LIST');"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:5252/api/file/block/convert?id=cd0b5621-28eb-440c-8875-21347d22a2c7&newType=COFFEE_LIST",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"convert"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "cd0b5621-28eb-440c-8875-21347d22a2c7"
+								},
+								{
+									"key": "newType",
+									"value": "COFFEE_LIST"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Block to TABLE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"const response = pm.response.json();",
+									"pm.expect(response).to.have.property('message');",
+									"pm.expect(response.message).to.equal('Table block can\\'t be converted to anything and vice versa');",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:5252/api/file/block/convert?id=cd0b5621-28eb-440c-8875-21347d22a2c7&newType=TABLE",
+							"host": [
+								"localhost"
+							],
+							"port": "5252",
+							"path": [
+								"api",
+								"file",
+								"block",
+								"convert"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "cd0b5621-28eb-440c-8875-21347d22a2c7"
+								},
+								{
+									"key": "newType",
+									"value": "TABLE"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
