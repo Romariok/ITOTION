@@ -16,10 +16,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import pet.notion.fileService.dto.BlockCreationDTO;
 import pet.notion.fileService.dto.BlockDTO;
+import pet.notion.fileService.dto.BlockTitleUpdateDTO;
+import pet.notion.fileService.dto.BlockTypeConversionDTO;
 import pet.notion.fileService.model.Type;
 import pet.notion.fileService.service.BlockService;
 import org.springframework.web.bind.annotation.GetMapping;
-
 
 @RestController
 @RequestMapping("/api/file/block")
@@ -32,29 +33,30 @@ public class BlockController {
    public ResponseEntity<BlockDTO> getBlock(@RequestParam UUID id) {
       return ResponseEntity.ok(blockService.getBlock(id));
    }
-   
+
    @PostMapping("/create")
-   public ResponseEntity<BlockDTO> createBlock(@RequestBody @Valid BlockCreationDTO blockCreationDTO){
+   public ResponseEntity<BlockDTO> createBlock(@RequestBody @Valid BlockCreationDTO blockCreationDTO) {
       Type parsedType = Type.valueOf(blockCreationDTO.getType());
-      return ResponseEntity.ok(blockService.createBlock(parsedType, blockCreationDTO.getParentId(), blockCreationDTO.getDimensions()));
+      return ResponseEntity
+            .ok(blockService.createBlock(parsedType, blockCreationDTO.getParentId(), blockCreationDTO.getDimensions()));
    }
 
    @PatchMapping("/convert")
-   public ResponseEntity<BlockDTO> convertBlockType(@RequestParam String newType, @RequestParam UUID id){
-      Type parsedType = Type.valueOf(newType);
-      return ResponseEntity.ok(blockService.convertBlockToTypeById(id, parsedType));
+   public ResponseEntity<BlockDTO> convertBlockType(@RequestBody @Valid BlockTypeConversionDTO blockTypeConversionDTO) {
+      Type parsedType = Type.valueOf(blockTypeConversionDTO.getNewType());
+      return ResponseEntity.ok(blockService.convertBlockToTypeById(blockTypeConversionDTO.getId(), parsedType));
    }
 
    @PatchMapping("/title")
-   public ResponseEntity<BlockDTO> changeBlockTitle(@RequestParam String newTitle, @RequestParam UUID id){
-      return ResponseEntity.ok(blockService.changeTitle(id, newTitle));
+   public ResponseEntity<BlockDTO> changeBlockTitle(@RequestBody @Valid BlockTitleUpdateDTO blockTitleUpdateDTO) {
+      return ResponseEntity
+            .ok(blockService.changeTitle(blockTitleUpdateDTO.getId(), blockTitleUpdateDTO.getNewTitle()));
    }
 
    @DeleteMapping("")
-   public ResponseEntity<Void> deleteBlock(@RequestParam UUID id){
+   public ResponseEntity<Void> deleteBlock(@RequestParam UUID id) {
       blockService.deleteBlock(id);
       return ResponseEntity.ok().build();
    }
 
-   
 }
