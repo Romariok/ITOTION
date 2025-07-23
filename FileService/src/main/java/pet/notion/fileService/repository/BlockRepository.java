@@ -22,4 +22,9 @@ public interface BlockRepository extends JpaRepository<Block, UUID> {
    @Query("UPDATE Block b SET b.properties = :properties WHERE b.id = :id")
    @Transactional
    void setPropertiesById(UUID id, Map<String, List<String>> properties);
+
+   @Modifying
+   @Query("DELETE FROM Block b WHERE b.id IN :ids")
+   @Transactional
+   void deleteAllByIdIn(List<UUID> ids);
 }

@@ -41,7 +41,8 @@ public class BlockService {
       if (type.equals(Type.TABLE)) {
          try {
             if (dimensions == null) {
-               throw new IllegalArgumentException("For Table creation provide dimensions array with 2 integers between 1 and 12");
+               throw new IllegalArgumentException(
+                     "For Table creation provide dimensions array with 2 integers between 1 and 12");
             }
             Integer axisX = Integer.parseInt(dimensions.get(0));
             Integer axisY = Integer.parseInt(dimensions.get(1));
@@ -91,9 +92,10 @@ public class BlockService {
             .orElseThrow(() -> new BlockNotFoundException("BLOCK_NOT_FOUND", "Block not found"));
 
       for (UUID childUuid : block.getContent()) {
-         deleteBlockRecursive(childUuid, block);
+         List<UUID> deletedChildren = deleteBlockRecursive(childUuid, block);
+         blockRepository.deleteAllByIdIn(deletedChildren);
       }
-      // TODO собрать массив id блоков и удалить
+
       if (block.getParentId() != null) {
          Block parentBlock = blockRepository.findById(block.getParentId())
                .orElseThrow(() -> new BlockNotFoundException("BLOCK_NOT_FOUND", "Parent block not found"));
@@ -108,14 +110,17 @@ public class BlockService {
       blockRepository.delete(block);
    }
 
-   public void deleteBlockRecursive(UUID id, Block parentBlock) {
+   public List<UUID> deleteBlockRecursive(UUID id, Block parentBlock) {
       Block block = blockRepository.findById(id)
             .orElseThrow(() -> new BlockNotFoundException("BLOCK_NOT_FOUND", "Block not found"));
 
+      List<UUID> deletedBlocks = new ArrayList<>();
+
       for (UUID childUuid : block.getContent()) {
-         deleteBlockRecursive(childUuid, block);
+         deletedBlocks.addAll(deleteBlockRecursive(childUuid, block));
       }
-      blockRepository.delete(block);
+
+      return deletedBlocks;
    }
 
    @Transactional
