@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import pet.notion.fileService.validation.ValidDimensions;
 
 @Data
 public class BlockCreationDTO {
@@ -12,5 +13,7 @@ public class BlockCreationDTO {
    String type;
 
    UUID parentId;
+
+   @ValidDimensions
    List<String> dimensions;
 }

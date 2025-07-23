@@ -41,16 +41,10 @@ public class BlockService {
       if (type.equals(Type.TABLE)) {
          try {
             if (dimensions == null) {
-               throw new IllegalArgumentException("For Table creation provide dimensions array with 2 axis");
-            }
-            if (dimensions.size() != 2) {
-               throw new IllegalArgumentException("Dimensions array must contain 2 integer axis");
+               throw new IllegalArgumentException("For Table creation provide dimensions array with 2 integers between 1 and 12");
             }
             Integer axisX = Integer.parseInt(dimensions.get(0));
             Integer axisY = Integer.parseInt(dimensions.get(1));
-            if (axisX > 12 || axisY > 12 || axisX < 1 || axisY < 1) {
-               throw new IllegalArgumentException("Axis value must be in [1:12] range");
-            }
             List<UUID> textBlocks = initTextBlocksForTable(axisX * axisY, block.getId());
             block.setContent(textBlocks);
          } catch (NumberFormatException e) {
@@ -99,6 +93,7 @@ public class BlockService {
       for (UUID childUuid : block.getContent()) {
          deleteBlockRecursive(childUuid, block);
       }
+      // TODO собрать массив id блоков и удалить
       if (block.getParentId() != null) {
          Block parentBlock = blockRepository.findById(block.getParentId())
                .orElseThrow(() -> new BlockNotFoundException("BLOCK_NOT_FOUND", "Parent block not found"));
