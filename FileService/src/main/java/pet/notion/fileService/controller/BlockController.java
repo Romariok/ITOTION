@@ -23,7 +23,7 @@ import pet.notion.fileService.service.BlockService;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
-@RequestMapping("/api/file/block")
+@RequestMapping("/api/v1/block")
 @RequiredArgsConstructor
 public class BlockController {
    @Autowired

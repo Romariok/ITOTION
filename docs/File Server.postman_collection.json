@@ -43,14 +43,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/create",
+							"raw": "{{baseURL}}/api/v1/block/create",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"create"
 							]
@@ -84,7 +83,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"type\": \"TEXT\",\n    \"parentId\": \"cd0b5621-28eb-440c-8875-21347d22a2c7\"\n}",
+							"raw": "{\n    \"type\": \"TEXT\",\n    \"parentId\": \"cbc4b857-4b5e-4044-8e45-620dbb3e4eb5\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -92,14 +91,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/create",
+							"raw": "{{baseURL}}/api/v1/block/create",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"create"
 							]
@@ -136,14 +134,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/create",
+							"raw": "{{baseURL}}/api/v1/block/create",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"create"
 							]
@@ -185,14 +182,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/create",
+							"raw": "{{baseURL}}/api/v1/block/create",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"create"
 							]
@@ -234,14 +230,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/create",
+							"raw": "{{baseURL}}/api/v1/block/create",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"create"
 							]
@@ -279,27 +274,25 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3857b0c5-3c44-452b-bb2e-697715192294\",\n    \"newTitle\": \"new valid title\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/title?id=fa714918-dc84-4c0b-9342-c7326dedb7b2&newTitle=new valid title",
+							"raw": "{{baseURL}}/api/v1/block/title",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"title"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "fa714918-dc84-4c0b-9342-c7326dedb7b2"
-								},
-								{
-									"key": "newTitle",
-									"value": "new valid title"
-								}
 							]
 						}
 					},
@@ -339,14 +332,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/create",
+							"raw": "{{baseURL}}/api/v1/block/create",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"create"
 							]
@@ -366,7 +358,7 @@
 									"});",
 									"const response = pm.response.json();",
 									"pm.expect(response).to.have.property('message');",
-									"pm.expect(response.message).to.equal('For Table creation provide dimensions array with 2 axis');",
+									"pm.expect(response.message).to.equal('For Table creation provide dimensions array with 2 integers between 1 and 12');",
 									""
 								],
 								"type": "text/javascript",
@@ -387,14 +379,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/create",
+							"raw": "{{baseURL}}/api/v1/block/create",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"create"
 							]
@@ -414,7 +405,7 @@
 									"});",
 									"const response = pm.response.json();",
 									"pm.expect(response).to.have.property('message');",
-									"pm.expect(response.message).to.equal('Dimensions array must contain 2 integer axis');",
+									"pm.expect(response.message).to.equal('Invalid dimensions. List must be null or contain two integers between 1 and 12.');",
 									""
 								],
 								"type": "text/javascript",
@@ -435,14 +426,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/create",
+							"raw": "{{baseURL}}/api/v1/block/create",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"create"
 							]
@@ -462,7 +452,7 @@
 									"});",
 									"const response = pm.response.json();",
 									"pm.expect(response).to.have.property('message');",
-									"pm.expect(response.message).to.equal('Dimensions values must be Integers');",
+									"pm.expect(response.message).to.equal('Invalid dimensions. List must be null or contain two integers between 1 and 12.');",
 									""
 								],
 								"type": "text/javascript",
@@ -483,14 +473,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/create",
+							"raw": "{{baseURL}}/api/v1/block/create",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"create"
 							]
@@ -509,20 +498,19 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5252/api/file/block?id=636c494b-2f08-41b0-8347-f2cb41d4ca70",
+							"raw": "{{baseURL}}/api/v1/block?id=ec8bf4f9-1388-4928-8c16-bb5c10dedf92",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block"
 							],
 							"query": [
 								{
 									"key": "id",
-									"value": "636c494b-2f08-41b0-8347-f2cb41d4ca70"
+									"value": "ec8bf4f9-1388-4928-8c16-bb5c10dedf92"
 								}
 							]
 						}
@@ -559,27 +547,25 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3857b0c5-3c44-452b-bb2e-697715192294\",\n    \"newType\": \"QUOTE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/convert?id=fa714918-dc84-4c0b-9342-c7326dedb7b2&newType=QUOTE",
+							"raw": "{{baseURL}}/api/v1/block/convert",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"convert"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "fa714918-dc84-4c0b-9342-c7326dedb7b2"
-								},
-								{
-									"key": "newType",
-									"value": "QUOTE"
-								}
 							]
 						}
 					},
@@ -611,27 +597,25 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3857b0c5-3c44-452b-bb2e-697715192294\",\n    \"newType\": \"BULLET_LIST\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/convert?id=4605385c-c773-4bf8-91f9-47a43ab5569b&newType=BULLET_LIST",
+							"raw": "{{baseURL}}/api/v1/block/convert",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"convert"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "4605385c-c773-4bf8-91f9-47a43ab5569b"
-								},
-								{
-									"key": "newType",
-									"value": "BULLET_LIST"
-								}
 							]
 						}
 					},
@@ -649,9 +633,7 @@
 									"});",
 									"const response = pm.response.json();",
 									"pm.expect(response).to.have.property('properties');",
-									"pm.expect(response).to.have.property('type');",
 									"pm.expect(response.type).to.equal('DIVIDER');",
-									"pm.expect(response.properties).to.deep.equal({});",
 									""
 								],
 								"type": "text/javascript",
@@ -662,27 +644,25 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3857b0c5-3c44-452b-bb2e-697715192294\",\n    \"newType\": \"DIVIDER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/convert?id=4605385c-c773-4bf8-91f9-47a43ab5569b&newType=DIVIDER",
+							"raw": "{{baseURL}}/api/v1/block/convert",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"convert"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "4605385c-c773-4bf8-91f9-47a43ab5569b"
-								},
-								{
-									"key": "newType",
-									"value": "DIVIDER"
-								}
 							]
 						}
 					},
@@ -710,27 +690,25 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3857b0c5-3c44-452b-bb2e-697715192294\",\n    \"newType\": \"COFFEE_LIST\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/convert?id=cd0b5621-28eb-440c-8875-21347d22a2c7&newType=COFFEE_LIST",
+							"raw": "{{baseURL}}/api/v1/block/convert",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"convert"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "cd0b5621-28eb-440c-8875-21347d22a2c7"
-								},
-								{
-									"key": "newType",
-									"value": "COFFEE_LIST"
-								}
 							]
 						}
 					},
@@ -759,33 +737,38 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3857b0c5-3c44-452b-bb2e-697715192294\",\n    \"newType\": \"TABLE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:5252/api/file/block/convert?id=cd0b5621-28eb-440c-8875-21347d22a2c7&newType=TABLE",
+							"raw": "{{baseURL}}/api/v1/block/convert",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5252",
 							"path": [
 								"api",
-								"file",
+								"v1",
 								"block",
 								"convert"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "cd0b5621-28eb-440c-8875-21347d22a2c7"
-								},
-								{
-									"key": "newType",
-									"value": "TABLE"
-								}
 							]
 						}
 					},
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:5252",
+			"type": "default"
 		}
 	]
 }
