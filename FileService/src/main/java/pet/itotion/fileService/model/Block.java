@@ -1,4 +1,4 @@
-package pet.notion.fileService.model;
+package pet.itotion.fileService.model;
 
 import java.util.List;
 import java.util.Map;
@@ -20,16 +20,16 @@ public class Block {
    private UUID id;
 
    @Enumerated(EnumType.STRING)
-   @Column(name = "type", nullable=false)
+   @Column(name = "type", nullable = false)
    private Type type;
 
    @JdbcTypeCode(SqlTypes.JSON)
-   @Column(name = "properties", nullable=false)
+   @Column(name = "properties", nullable = false)
    private Map<String, List<String>> properties;
 
-   @Column(name = "content", nullable=false)
+   @Column(name = "content", nullable = false)
    private List<UUID> content;
 
-   @Column(name = "parentId", nullable=true)
+   @Column(name = "parentId", nullable = true)
    private UUID parentId;
 }

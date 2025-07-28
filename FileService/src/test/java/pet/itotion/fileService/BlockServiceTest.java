@@ -1,12 +1,12 @@
-package pet.notion.fileService;
+package pet.itotion.fileService;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import pet.notion.fileService.mapper.BlockMapper;
-import pet.notion.fileService.repository.BlockRepository;
-import pet.notion.fileService.service.BlockService;
+import pet.itotion.fileService.mapper.BlockMapper;
+import pet.itotion.fileService.repository.BlockRepository;
+import pet.itotion.fileService.service.BlockService;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -23,9 +23,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.api.DisplayName;
-import pet.notion.fileService.dto.BlockDTO;
-import pet.notion.fileService.model.Block;
-import pet.notion.fileService.model.Type;
+import pet.itotion.fileService.dto.BlockDTO;
+import pet.itotion.fileService.model.Block;
+import pet.itotion.fileService.model.Type;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Тесты для BlockService")
@@ -51,7 +51,7 @@ public class BlockServiceTest {
    class BlockCreationTests {
 
       @ParameterizedTest
-      @MethodSource("pet.notion.fileService.BlockServiceTest#onlyTitleTypes")
+      @MethodSource("pet.itotion.fileService.BlockServiceTest#onlyTitleTypes")
       @DisplayName("Создание блока с заголовком")
       void blockHaveTitle(Type type) {
          Block block = new Block();

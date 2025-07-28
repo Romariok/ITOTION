@@ -1,4 +1,4 @@
-package pet.notion.fileService.controller;
+package pet.itotion.fileService.controller;
 
 import java.util.UUID;
 
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import pet.notion.fileService.dto.BlockCreationDTO;
-import pet.notion.fileService.dto.BlockDTO;
-import pet.notion.fileService.dto.BlockTitleUpdateDTO;
-import pet.notion.fileService.dto.BlockTypeConversionDTO;
-import pet.notion.fileService.model.Type;
-import pet.notion.fileService.service.BlockService;
+import pet.itotion.fileService.dto.BlockCreationDTO;
+import pet.itotion.fileService.dto.BlockDTO;
+import pet.itotion.fileService.dto.BlockTitleUpdateDTO;
+import pet.itotion.fileService.dto.BlockTypeConversionDTO;
+import pet.itotion.fileService.model.Type;
+import pet.itotion.fileService.service.BlockService;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController

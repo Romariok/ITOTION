@@ -1,9 +1,9 @@
-package pet.notion.fileService.dto;
+package pet.itotion.fileService.dto;
 
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import pet.notion.fileService.model.Type;
+import pet.itotion.fileService.model.Type;
 import lombok.Data;
 
 @Data

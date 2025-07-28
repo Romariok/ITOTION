@@ -1,11 +1,11 @@
-package pet.notion.fileService.dto;
+package pet.itotion.fileService.dto;
 
 import java.util.List;
 import java.util.UUID;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
-import pet.notion.fileService.validation.ValidDimensions;
+import pet.itotion.fileService.validation.ValidDimensions;
 
 @Data
 public class BlockCreationDTO {

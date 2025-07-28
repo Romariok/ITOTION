@@ -1,4 +1,4 @@
-package pet.notion.fileService.exception;
+package pet.itotion.fileService.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

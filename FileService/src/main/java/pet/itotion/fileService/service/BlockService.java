@@ -1,4 +1,4 @@
-package pet.notion.fileService.service;
+package pet.itotion.fileService.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import pet.notion.fileService.dto.BlockDTO;
-import pet.notion.fileService.exception.BlockNotConsistentException;
-import pet.notion.fileService.exception.BlockNotFoundException;
-import pet.notion.fileService.mapper.BlockMapper;
-import pet.notion.fileService.model.Block;
-import pet.notion.fileService.model.Type;
-import pet.notion.fileService.repository.BlockRepository;
+import pet.itotion.fileService.dto.BlockDTO;
+import pet.itotion.fileService.exception.BlockNotConsistentException;
+import pet.itotion.fileService.exception.BlockNotFoundException;
+import pet.itotion.fileService.mapper.BlockMapper;
+import pet.itotion.fileService.model.Block;
+import pet.itotion.fileService.model.Type;
+import pet.itotion.fileService.repository.BlockRepository;
 
 @Service
 @RequiredArgsConstructor

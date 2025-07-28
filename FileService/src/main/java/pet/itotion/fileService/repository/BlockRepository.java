@@ -1,10 +1,10 @@
-package pet.notion.fileService.repository;
+package pet.itotion.fileService.repository;
 
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import pet.notion.fileService.model.Block;
+import pet.itotion.fileService.model.Block;
 
 import java.util.List;
 import java.util.Map;

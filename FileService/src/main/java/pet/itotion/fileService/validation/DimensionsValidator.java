@@ -1,4 +1,4 @@
-package pet.notion.fileService.validation;
+package pet.itotion.fileService.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

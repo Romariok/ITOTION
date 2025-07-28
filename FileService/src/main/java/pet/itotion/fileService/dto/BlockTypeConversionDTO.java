@@ -1,4 +1,4 @@
-package pet.notion.fileService.dto;
+package pet.itotion.fileService.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

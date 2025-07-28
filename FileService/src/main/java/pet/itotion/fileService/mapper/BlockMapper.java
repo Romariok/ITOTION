@@ -1,10 +1,10 @@
-package pet.notion.fileService.mapper;
+package pet.itotion.fileService.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import pet.notion.fileService.dto.BlockDTO;
-import pet.notion.fileService.model.Block;
+import pet.itotion.fileService.dto.BlockDTO;
+import pet.itotion.fileService.model.Block;
 
 @Mapper(componentModel = "spring")
 public interface BlockMapper {

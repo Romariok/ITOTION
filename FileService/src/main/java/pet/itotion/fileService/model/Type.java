@@ -1,4 +1,4 @@
-package pet.notion.fileService.model;
+package pet.itotion.fileService.model;
 
 public enum Type {
    TEXT,
@@ -16,8 +16,9 @@ public enum Type {
    public Type fromString(String type) {
       return Type.valueOf(type.toUpperCase());
    }
+
    public String toString() {
       return this.name();
    }
-   
+
 }

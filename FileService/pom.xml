@@ -9,11 +9,11 @@
 		<version>3.5.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>pet.notion</groupId>
+	<groupId>pet.itotion</groupId>
 	<artifactId>fileService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>fileService</name>
-	<description>File service for Notion like application</description>
+	<description>File service for ITOTION application</description>
 	<url />
 	<licenses>
 		<license />
